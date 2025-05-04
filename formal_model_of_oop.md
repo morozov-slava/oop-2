@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 
 
 class Report(ABC):
-	@abstractmethod
+    @abstractmethod
     def export_to_parquet(self, path: str) -> None:
         pass
 
@@ -23,12 +23,12 @@ class SalesReport(Report):
 
 
 def export_report_to_parquet(report: Report) -> None:
-	report.export_to_parquet()
+    report.export_to_parquet()
 
 
 reports = [FinancialReport(), SalesReport()]
 for r in reports:
-	export_report_to_parquet(r)
+    export_report_to_parquet(r)
 ```
 
 
@@ -43,7 +43,7 @@ from typing import Protocol
 
 
 class Report(ABC):
-	@abstractmethod
+    @abstractmethod
     def export_to_parquet(self, path: str) -> None:
         pass
         
@@ -60,18 +60,18 @@ class SalesReport(Report):
 
 # Протокол (интерфейс) с возвращаемым типом Report
 class ReportFactory(Protocol):
-	def create(self) -> Report:
-		pass
+    def create(self) -> Report:
+        pass
 
 
 # Конкретная реализация, которая возвращает FinancialReport (подтип Report)
 class FinancialReportFactory(Protocol):
-	def create(self) -> FinancialReport:
-		return FinancialReport()
+    def create(self) -> FinancialReport:
+        return FinancialReport()
 	
 
 def create_report(factory: ReportFactory) -> Report:
-	return factory.create()
+    return factory.create()
 
 factory = FinancialReportFactory()
 report = create_report(factory) 
