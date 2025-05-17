@@ -4,13 +4,13 @@
 
 ```py
 class LossFunction:
-	def calculate(self, y_true: np.array, y_pred: np.array):
-		pass
+    def calculate(self, y_true: np.array, y_pred: np.array):
+        pass
 
 
-class MeanSquaredError(LossFunction)
-	def calculate(self, y_true: np.array, y_pred: np.array):
-		return np.mean((y_true - y_pred)**2)
+class MeanSquaredError(LossFunction):
+    def calculate(self, y_true: np.array, y_pred: np.array):
+        return np.mean((y_true - y_pred)**2)
 ```
 
 Здесь метод `calculate` переопределён в классе `MeanSquaredError` c сохранением сигнатуры.
@@ -24,11 +24,11 @@ class MeanSquaredError(LossFunction)
 ```py
 class LogisticRegression:
     def predict(self, x):
-	    pass
+        pass
 
 class LogisticRegressionWithThreshold(LogisticRegression):
     def predict(self, x, thr: float):
-	    pass
+        pass
 ```
 
 Здесь метод `predict` переопределён в классе `LogisticRegressionWithThreshold`, c изменением его сигнатуры (добавляется аргумент `thr`).
@@ -41,21 +41,18 @@ class LogisticRegressionWithThreshold(LogisticRegression):
 ```py
 from abc import ABC, abstractmethod
 
-
 class User(ABC):
-	@abstractmethod
-	def authorize(self):
-		pass
-
+    @abstractmethod
+    def authorize(self):
+        pass
 
 class AdminUser(User):
-	def authorize(self):
-		pass
-
+    def authorize(self):
+        pass
 
 class DefaultUser(User):
-	def authorize(self):
-		pass
+    def authorize(self):
+        pass
 ```
 
 Здесь `User` — абстрактный класс с абстрактным методом `authorize`, который должен быть реализован в дочерних классах `AdminUser` и `DefaultUser`.
@@ -71,11 +68,9 @@ class Document:
     def __init__(self, text):
         self.text = text
 
-
 class DatabaseExportable:
     def export(self):
 	    pass
-
 
 class Report(Document, PdfExportable):
     def __init__(self, text):
