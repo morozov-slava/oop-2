@@ -27,18 +27,18 @@ class Button(Widget):
 
 ```py
 class BaseStringValidator:
-	def __init__(self, string):
-		self.string = string
-		self._is_valid = None
+    def __init__(self, string):
+        self.string = string
+        self._is_valid = None
 
-	def is_valid(self):
-		if self._is_valid is None:
-			raise NotImplementedError()
-		return self._is_valid
+    def is_valid(self):
+        if self._is_valid is None:
+            raise NotImplementedError()
+        return self._is_valid
 
 
 class PasswordLengthValidator(BaseStringValidator):
-	def __init__(self, string: str):
+    def __init__(self, string: str):
         super().__init__(string)
         self._is_valid = len(string) >= 12
 ```
