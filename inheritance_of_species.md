@@ -27,7 +27,7 @@ class BaseClassificationModel(ABC):
 
 class LogisticRegression(BaseClassificationModel):
 	def __init__(self):
-        super().__init__()
+		super().__init__()
 
 	def fit(self, X_train: np.array, y_train: np.array):
 		raise NotImplementedError("This method must be implemented in child class")
@@ -72,7 +72,7 @@ class CreditScoringFeaturesPreprocessor(FeaturesDataPreprocessor):
 # Основной класс, реализующий наследование вида
 class CreditScoringPipeline:
 	def __init__(self, 
-		data_preprocessor: 
+		data_preprocessor: FeaturesDataPreprocessor,
 		model: BaseClassificationModel, 
 		loss_func: BaseClassificationLossFunc
 	):
