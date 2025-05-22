@@ -10,6 +10,7 @@ from abc import ABC, abstractmethod
 import numpy as np
 import pandas as pd
 
+
 # 1-я иерархия классов: модель классификации
 class BaseClassificationModel(ABC):
 	def __init__(self):
